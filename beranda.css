@@ -1,0 +1,477 @@
+/* Import Font (Opsional) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #141414; /* Hitam Netflix */
+    color: #ffffff;
+    overflow-x: hidden; /* Mencegah scroll horizontal di body */
+}
+
+a {
+    color: #e5e5e5;
+    text-decoration: none;
+}
+a:hover {
+    color: #b3b3b3;
+}
+
+/* 1. HEADER / NAVIGASI */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem; /* 20px 48px */
+    background-color: #141414;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem; /* 40px */
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link {
+    margin-left: 1.25rem; /* 20px */
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.nav-link.active {
+    font-weight: 700;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* 2. HERO SECTION */
+.main-content {
+    padding-top: 80px; /* Tinggi navbar */
+}
+
+.hero {
+    position: relative;
+    height: 80vh; /* Tinggi 80% dari viewport */
+    display: flex;
+    align-items: flex-end; /* Konten di bawah */
+    padding: 3rem;
+    color: #fff;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* GANTI URL GAMBAR INI */
+    background: url(img/Rectangle\ 9.png) no-repeat center center/cover;
+    z-index: 1;
+}
+
+/* Gradient hitam di atas gambar hero */
+.hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #141414 10%, transparent 50%),
+                linear-gradient(to right, #141414 10%, transparent 50%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 40%;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #ffffff;
+    color: #000;
+}
+.btn-primary:hover {
+    background-color: #dcdcdc;
+}
+
+.btn-secondary {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: #fff;
+}
+.btn-secondary:hover {
+    background-color: rgba(109, 109, 110, 0.4);
+}
+
+.rating {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    background: rgba(20, 20, 20, 0.6);
+}
+
+/* 3. CAROUSEL SECTION */
+.carousel-section {
+    padding: 0 3rem 2rem 3rem; /* Padding kiri-kanan sama dgn hero */
+    margin-top: -50px; /* Overlap sedikit dgn hero */
+    position: relative;
+    z-index: 3;
+}
+
+.carousel-section:first-of-type {
+    margin-top: -100px; /* Section pertama overlap lebih banyak */
+}
+
+.carousel-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 0.75rem; /* Jarak antar card */
+    overflow-x: scroll; /* Ini untuk scrolling manual jika JS gagal */
+    overflow-y: hidden;
+    padding-bottom: 1rem; /* Ruang untuk scrollbar (jika terlihat) */
+    
+    /* Sembunyikan scrollbar bawaan */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+}
+.carousel-track::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
+.card {
+    flex-shrink: 0; /* Mencegah card mengecil */
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, z-index 0.3s;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Ukuran card yang berbeda */
+.card.continue-watching {
+    width: 300px;
+    height: 170px;
+}
+.card.poster {
+    width: 200px;
+    height: 300px;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+
+
+
+/* Progress bar untuk 'Melanjutkan' */
+.progress-bar {
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    right: 10px;
+    height: 4px;
+    background-color: rgba(100, 100, 100, 0.7);
+    border-radius: 2px;
+}
+.progress {
+    height: 100%;
+    background-color: #E50914; /* Merah */
+    border-radius: 2px;
+}
+
+/* Badge (Top 10, Episode Baru) */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0.3rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    z-index: 5;
+}
+.badge.top-10 {
+    background-color: #E50914; /* Merah */
+    color: white;
+}
+.badge.new-episode {
+    background-color: #3498db; /* Biru */
+    color: white;
+}
+
+/* Tombol Navigasi Carousel (Panah) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(20, 20, 20, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Sembunyi by default */
+    transition: opacity 0.3s ease;
+}
+.carousel-btn.prev {
+    left: -20px;
+}
+.carousel-btn.next {
+    right: -20px;
+}
+
+/* Tampilkan tombol saat hover di container */
+.carousel-container:hover .carousel-btn {
+    opacity: 1;
+}
+
+/* 5. FOOTER */
+.footer {
+    padding: 3rem;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+}
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #777;
+}
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 150px;
+}
+.footer-column a {
+    font-size: 0.9rem;
+    color: #777;
+}
+.footer-column a:hover {
+    color: #aaa;
+}
+.footer-copyright {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+
+/* ========================================= */
+/* === MULAI KODE RESPONSIVE === */
+/* ========================================= */
+
+/* === 1. Untuk Tablet (Layar Menengah) - di bawah 992px === */
+@media (max-width: 992px) {
+    .hero-content {
+        max-width: 60%; /* Beri lebih banyak ruang untuk teks hero */
+    }
+
+    .footer-links {
+        /* Susun kolom footer menjadi 3 kolom */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* === 2. Untuk Ponsel (Layar Kecil) - di bawah 768px === */
+@media (max-width: 768px) {
+    
+    /* -- Perbaiki Navbar -- */
+    .navbar {
+        flex-direction: column; /* Susun logo/nav dan profil secara vertikal */
+        align-items: flex-start; /* Ratakan semua ke kiri */
+        padding: 1rem; /* Kurangi padding */
+    }
+
+    .navbar-left {
+        flex-direction: column; /* Susun logo di atas nav-links */
+        align-items: flex-start;
+        gap: 1rem; /* Beri jarak antara logo dan nav-links */
+        margin-bottom: 1rem; /* Jarak ke ikon profil (sebelum dipindah) */
+        width: 100%;
+    }
+
+    .navbar-right {
+        /* Pindahkan ikon profil ke kanan atas */
+        position: absolute;
+        top: 1.25rem;
+        right: 1rem;
+    }
+
+    .nav-link {
+        margin-left: 0; /* Hapus margin kiri dari nav-links */
+        font-size: 1rem; /* Sedikit perbesar agar mudah diketuk */
+        padding: 0.25rem 0;
+    }
+    
+    /* -- Perbaiki Main Content Padding -- */
+    .main-content {
+        /* Sesuaikan padding atas karena tinggi navbar berubah */
+        padding-top: 150px; 
+    }
+
+    /* -- Perbaiki Hero -- */
+    .hero {
+        padding: 1.5rem; /* Kurangi padding hero */
+        height: 60vh; /* Buat hero sedikit lebih pendek di hp */
+    }
+
+    .hero-content {
+        max-width: 100%; /* Gunakan seluruh lebar */
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem; /* Kecilkan judul */
+    }
+
+    .hero-content p {
+        font-size: 0.9rem; /* Kecilkan deskripsi */
+        margin-bottom: 1rem;
+        /* Batasi teks hanya 3 baris */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Susun tombol ke bawah */
+        align-items: flex-start; /* Ratakan kiri */
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%; /* Buat tombol jadi lebar penuh */
+        justify-content: center; /* Pusatkan teks & ikon di dalam tombol */
+    }
+
+    /* -- Perbaiki Carousel -- */
+    .carousel-section {
+        padding: 0 1rem 1.5rem 1rem; /* Kurangi padding kiri-kanan */
+    }
+    
+    .carousel-section:first-of-type {
+        margin-top: -70px; /* Kurangi overlap */
+    }
+
+    .carousel-section h3 {
+        font-size: 1.25rem; /* Kecilkan judul section */
+    }
+
+    .carousel-btn {
+        /* Sembunyikan panah di mobile (asumsi pengguna akan swipe) */
+        display: none;
+    }
+    
+    /* -- Perbaiki Footer -- */
+    .footer {
+        padding: 1.5rem; /* Kurangi padding */
+        text-align: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .footer-links {
+        /* Susun semua kolom ke bawah */
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center; /* Pusatkan link */
+    }
+
+    .footer-column {
+        align-items: center;
+    }
+}

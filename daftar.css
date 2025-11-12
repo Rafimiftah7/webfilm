@@ -1,0 +1,190 @@
+
+/* Mengatur font dan latar belakang dasar */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Kontainer utama untuk form */
+.login-container {
+    background-color: #2c2c2c;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Logo "CHILL" */
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo .fa-clapperboard {
+    color: #e0e0e0;
+}
+
+/* Judul "Masuk" / "Daftar" */
+.login-container h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Sub-judul */
+.login-container p {
+    color: #a0a0a0;
+    margin-bottom: 2rem;
+}
+
+/* Grup input (label + input field) */
+.input-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #c0c0c0;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    color: #ffffff;
+    font-size: 1rem;
+    box-sizing: border-box; 
+}
+
+.input-group input::placeholder {
+    color: #777;
+}
+
+/* Tautan "Sudah punya akun?" */
+.existing-account-link {
+    text-align: left;
+    margin-bottom: 1.5rem; /* Memberi jarak sebelum tombol Daftar */
+    font-size: 0.9rem;
+}
+
+.existing-account-link a {
+    color: #c0c0c0;
+    text-decoration: none;
+}
+
+.existing-account-link a:hover {
+    text-decoration: underline;
+}
+
+.existing-account-link a strong {
+    color: #ffffff; /* Membuat "Masuk" lebih menonjol */
+}
+
+/* Tombol Login/Daftar Utama */
+.btn-login {
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a4a4a;
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #5a5a5a;
+}
+
+/* Pemisah "Atau" */
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #777;
+    margin: 1.5rem 0;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #444;
+}
+
+.separator:not(:empty)::before {
+    margin-right: 0.5em;
+}
+
+.separator:not(:empty)::after {
+    margin-left: 0.5em;
+}
+
+/* Tombol Google */
+.btn-google {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-google:hover {
+    background-color: #333;
+}
+
+.google-icon {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* ========================================= */
+/* === KODE RESPONSIVE LOGIN/DAFTAR === */
+/* ========================================= */
+
+@media (max-width: 480px) {
+    body {
+        /* Hapus background gelap di pinggir, buat form penuh */
+        padding: 0;
+        align-items: flex-start; /* Ratakan form ke atas */
+    }
+
+    .login-container {
+        width: 100%;
+        max-width: 100%;
+        min-height: 100vh; /* Buat form setinggi layar */
+        border-radius: 0; /* Hapus sudut bulat */
+        padding: 2rem 1.5rem; /* Sesuaikan padding */
+        box-shadow: none; /* Hapus bayangan */
+    }
+}
